@@ -1,0 +1,20 @@
+1. Remove all code from app.component.html
+
+2. go to inside app folder, execute the command ng g c "component name". It will create folder with component name, files inside the folder.
+For ex: if the component name is registration, then "registration.component.ts, registration.component.css, registration.component.cshtml, 
+registration.component.spec".
+
+3. Keep ts, html files. Delete ramaining two files.
+
+4. Import thae new component in app.routing.module.ts file, add a new route for the component.
+ex: 
+const routes: Routes = [
+  {
+    path: 'register',
+    component: RegistrationComponent
+  }
+];
+
+5. In app.component.html add a anchor tag with routerlink as '/register'.
+
+6. Add the code "<router-outlet></router-outlet>" in app.component.html file.
