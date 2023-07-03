@@ -17,4 +17,8 @@ const routes: Routes = [
 
 5. In app.component.html add a anchor tag with routerlink as '/register'.
 
-6. Add the code "<router-outlet></router-outlet>" in app.component.html file.
+6. Add the code "<router-outlet></router-outlet>" in app.component.html file. Now the content in register.component.html will be visible when we click on register button in app.component.html.
+
+7. If we want to show only register.component.html content but not app.component.html content then add if condition in app.component.html file.
+
+8. Import the FormsModule, httpclientmodule in app.module.ts file, add them in imports section.

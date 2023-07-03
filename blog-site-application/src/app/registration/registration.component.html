@@ -1,1 +1,22 @@
-<p>registration works!</p>
+<br/>
+
+<label>UserName:</label>
+<input type="text" [(ngModel)]="user.UserName"/>
+
+<br/>
+
+<label>Email:</label>
+<input type="text" [(ngModel)]="user.Email"/>
+
+<br/>
+
+<label>Password:</label>
+<input type="password" [(ngModel)]="user.Password"/>
+
+<br/>
+
+<button type="submit" (click)="RegisterNewUser()">Register</button>
+
+<br/>
+
+<label>{{message}}</label>
