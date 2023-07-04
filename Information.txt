@@ -22,3 +22,10 @@ const routes: Routes = [
 7. If we want to show only register.component.html content but not app.component.html content then add if condition in app.component.html file.
 
 8. Import the FormsModule, httpclientmodule in app.module.ts file, add them in imports section.
+
+
+CORS error in microservices
+----------------------------------
+Add the below line of code in porogram.cs to get rid of cors error.
+
+app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());

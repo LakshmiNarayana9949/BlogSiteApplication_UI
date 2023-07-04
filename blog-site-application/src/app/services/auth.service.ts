@@ -11,7 +11,7 @@ export class AuthService{
 
     }
 
-    registerUser(user: User){
+    registerUser(user: User){        
         return this.http.post(this.registerURL, user, {responseType : 'text'}); 
     }
 }
