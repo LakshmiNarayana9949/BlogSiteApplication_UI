@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'  
 })
 export class LoginComponent implements OnInit {
   loginDetails : LoginDetails = new LoginDetails();
@@ -14,6 +13,9 @@ export class LoginComponent implements OnInit {
 
   Login(){
     
+    this.auth.loginUser(this.loginDetails).subscribe(res => {
+      debugger;
+    });
   }
   ngOnInit(): void {
   }

@@ -1,1 +1,13 @@
-<p>login works!</p>
+<br/>
+
+<label>Email:</label>
+<input type="text" [(ngModel)]="loginDetails.Email"/>
+
+<br/>
+
+<label>Password:</label>
+<input type="password" [(ngModel)]="loginDetails.Password"/>
+
+<br/>
+
+<button type="submit" (click)="Login()">Login</button>
