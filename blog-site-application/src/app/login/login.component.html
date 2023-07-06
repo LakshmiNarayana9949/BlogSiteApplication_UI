@@ -10,10 +10,18 @@
                         <label>Email:</label>
                         <input type="email" class="form-control" [(ngModel)]="loginDetails.Email"/>
                     </div>
+                    <div style="height: 25px; margin-top: -2%;">
+                        <label style="color:red">{{eMailValidation}}</label>
+                    </div>
+
                     <div class="form-group">
                         <label>Password:</label>
                         <input type="password" class="form-control" [(ngModel)]="loginDetails.Password"/>
                     </div>
+                    <div style="height: 25px; margin-top: -2%;">
+                        <label style="color:red">{{passwordValidation}}</label>
+                    </div>  
+                    
                     <label style="color:red">{{errorMessage}}</label>
                     <div class="form-group">
                         <button type="submit" (click)="Login()">Login</button>
