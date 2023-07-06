@@ -2,7 +2,7 @@
     <div class="col-md-6 mx-auto">
         <div class="card rounded-0" style="background-origin: lightgray;">
             <div class="card-header">
-                <h3 style="text-align: center; vertical-align: middle">Please enter credentials to login</h3>    
+                <h3 style="text-align: center; vertical-align: middle">Please fille the formto register</h3>    
             </div>
             <div class="card-body">
                 <div class="form">
@@ -10,14 +10,26 @@
                         <label>UserName:</label>
                         <input type="text" class="form-control" [(ngModel)]="user.UserName"/>
                     </div>
+                    <div style="height: 25px; margin-top: -2%;">
+                        <label style="color:red">{{userNameValidation}}</label>
+                    </div>
+
                     <div class="form-group">
                         <label>Email:</label>
                         <input type="email" class="form-control" [(ngModel)]="user.Email"/>
                     </div>
+                    <div style="height: 25px; margin-top: -2%;">
+                        <label style="color:red">{{eMailValidation}}</label>
+                    </div>
+
                     <div class="form-group">
                         <label>Password:</label>
                         <input type="password" class="form-control" [(ngModel)]="user.Password"/>
-                    </div>                    
+                    </div>        
+                    <div style="height: 25px; margin-top: -2%;">
+                        <label style="color:red">{{passwordValidation}}</label>
+                    </div>            
+
                     <div class="form-group">
                         <button type="submit" (click)="RegisterNewUser()">Register</button>
                     </div>
