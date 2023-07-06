@@ -9,12 +9,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginDetails : LoginDetails = new LoginDetails();
+  errorMessage : string = ''
   constructor(private router : Router, private auth : AuthService) { }
 
-  Login(){
-    
-    this.auth.loginUser(this.loginDetails).subscribe(res => {
-      debugger;
+  Login(){    
+    this.auth.loginUser(this.loginDetails).subscribe(res => { 
+      localStorage.setItem('token', res.RefreshToken);
+      localStorage.setItem('userId', res.Id);    
+      this.router.navigate(['/blog']);     
+    },
+    err => {
+      this.errorMessage = err.error.text;
     });
   }
   ngOnInit(): void {

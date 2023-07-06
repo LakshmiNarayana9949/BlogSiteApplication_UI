@@ -7,12 +7,14 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
