@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'blog-site-application';
+  constructor(private auth : AuthService, private router : Router){}
+
+  LoggedIn(input: boolean) : boolean{
+    if(input){
+      return this.auth.loggedIn();
+    }
+    else{
+      return !this.auth.loggedIn();
+    }
+  }
+
+  Logout(){
+    this.auth.logOutUser();
+    this.router.navigate(['/login']);
+  }
 }

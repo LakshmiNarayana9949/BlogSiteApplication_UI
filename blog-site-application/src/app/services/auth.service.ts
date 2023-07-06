@@ -16,7 +16,22 @@ export class AuthService{
     registerUser(user: User){        
         return this.http.post(this.registerURL, user, {responseType : 'text'}); 
     }
+    
     loginUser(loginDetails: LoginDetails){
         return this.http.post<any>(this.loginURL, loginDetails);
+    }
+
+    getToken(){
+        return localStorage.getItem('token');
+    }
+
+    loggedIn(){
+        return !!localStorage.getItem('token');
+    }
+
+    logOutUser(){
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        localStorage.clear();
     }
 }
