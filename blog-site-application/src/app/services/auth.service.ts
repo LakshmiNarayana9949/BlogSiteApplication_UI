@@ -7,7 +7,7 @@ import { LoginDetails } from "../models/LoginDetails";
 @Injectable()
 export class AuthService{
     private registerURL = "https://localhost:7251/Registration/Register"; 
-    private loginURL = "https://localhost:7099/Authentication/Authenticate";   
+    private loginURL = "https://localhost:7099/Authentication/Authenticate";    
 
     constructor(private router : Router, private http : HttpClient){
 
@@ -16,7 +16,7 @@ export class AuthService{
     registerUser(user: User){        
         return this.http.post(this.registerURL, user, {responseType : 'text'}); 
     }
-    
+
     loginUser(loginDetails: LoginDetails){
         return this.http.post<any>(this.loginURL, loginDetails);
     }

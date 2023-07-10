@@ -1,0 +1,33 @@
+<a class="nav-link" style="color: black; text-decoration: underline;" routerLink="/blog">Back </a>                        
+
+<h3>Add New Blog</h3>    
+
+<table style="height: 500px; width: 100%;">
+    <tr style="width: 100%;">
+        <td style="width: 50%; float: left;">
+            <label>Blog Name:</label> <br/>
+            <input type="email" style="width: 50%;" [(ngModel)]="blog.BlogName"/> <br/>
+            <label style="color:red">{{blogNameValidation}}</label>
+        </td>
+        <td style="width: 50%;">
+            <label>Category:</label> <br/>
+            <input type="password" style="width: 50%;" [(ngModel)]="blog.Category"/> <br/>
+            <label style="color:red">{{blogCategoryValidation}}</label>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100%;">
+            <label>Article:</label> <br/>
+            <input type="password"  style="width: 100%;" [(ngModel)]="blog.Article"/> <br/>
+            <label style="color:red">{{blogArticleValidation}}</label>
+        </td>
+    </tr>
+
+    <tr>                            
+        <td>
+            <button type="submit" class="btn btn-success">Save Blog</button>
+        </td>        
+    </tr>
+</table>
+
+<label style="color:red">{{successMessage}}</label>

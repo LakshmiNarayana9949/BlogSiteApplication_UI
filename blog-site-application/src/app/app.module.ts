@@ -9,13 +9,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AddnewblogComponent } from './addnewblog/addnewblog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    BlogComponent
+    BlogComponent,
+    AddnewblogComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, LoginComponent, BlogComponent,{
+  providers: [AuthService, LoginComponent, BlogComponent, AddnewblogComponent,{
     provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptorService,
     multi : true

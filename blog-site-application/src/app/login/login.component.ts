@@ -19,8 +19,9 @@ export class LoginComponent implements OnInit {
     if(this.loginDetails.Email != '' && this.loginDetails.Password != '')
     {  
       this.auth.loginUser(this.loginDetails).subscribe(res => { 
-        localStorage.setItem('token', res.RefreshToken);
-        localStorage.setItem('userId', res.Id);    
+        localStorage.setItem('token', res.refreshToken);
+        localStorage.setItem('userId', res.userId);  
+        localStorage.setItem('userName', res.userName);    
         this.router.navigate(['/blog']);     
       },
       err => {
