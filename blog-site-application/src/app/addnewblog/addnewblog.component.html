@@ -13,21 +13,21 @@
     <tr>
         <td>
             <label><b>Blog Name</b></label> <br/>
-            <input type="text" style="width: 60%; height: 40px; border-radius: 5px; border: 1px solid gray" [(ngModel)]="blog.BlogName"/> <br/>
+            <input type="text" style="width: 60%; height: 40px; border-radius: 5px; border: 1px solid gray" [(ngModel)]="blog.blogName"/> <br/>
             <label style="color:red">{{blogNameValidation}}</label>
         </td>
     </tr>
     <tr style="width: 100%;">
         <td style="width: 50%;">
             <label><b>Category</b></label> <br/>
-            <input type="text" style="width: 60%; height: 40px; border-radius: 5px; border: 1px solid gray" [(ngModel)]="blog.Category"/> <br/>
+            <input type="text" style="width: 60%; height: 40px; border-radius: 5px; border: 1px solid gray" [(ngModel)]="blog.category"/> <br/>
             <label style="color:red">{{blogCategoryValidation}}</label>
         </td>
     </tr>
     <tr>
         <td style="width: 100%;">
             <label><b>Article</b></label> <br/>
-            <textarea style="width: 100%; height: 150px; border-radius: 5px; border: 1px solid gray" [(ngModel)]="blog.Article"></textarea> <br/>            
+            <textarea style="width: 100%; height: 150px; border-radius: 5px; border: 1px solid gray" [(ngModel)]="blog.article"></textarea> <br/>            
             <label style="color:red">{{blogArticleValidation}}</label>
         </td>
         

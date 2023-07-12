@@ -1,8 +1,8 @@
 export class Blog{
-    Id : number = 0
-    BlogName : string = ''
-    Category : string = ''
-    Article : string = ''
-    CreatedBy : number = 0
-    CreatedOn : Date = new Date()   
+    id : number = 0
+    blogName : string = ''
+    category : string = ''
+    article : string = ''
+    createdBy : number = 0
+    createdOn : Date = new Date()   
 }

@@ -10,7 +10,9 @@ import { Head } from "rxjs";
 export class AuthService{
     private registerURL = "https://localhost:7251/Registration/Register"; 
     private loginURL = "https://localhost:7099/Authentication/Authenticate";
-    private blogURL = "https://localhost:7185/Blog/AddNewBlog";    
+    private blogURL = "https://localhost:7185/Blog/AddNewBlog"; 
+    private getAllBlogsURL = "https://localhost:7185/Blog/GetAllBlogs";
+    private getBlogByIdURL = "https://localhost:7185/Blog/GetBlogById";   
 
     constructor(private router : Router, private http : HttpClient){
 
@@ -24,9 +26,16 @@ export class AuthService{
         return this.http.post<any>(this.loginURL, loginDetails);
     }
 
-    addNewBlog(blog : Blog){
-        debugger;
+    addNewBlog(blog : Blog){        
         return this.http.post(this.blogURL, blog, {responseType : 'text'});
+    }
+
+    getAllBlogs(){
+        return this.http.get<any>(this.getAllBlogsURL);
+    }
+
+    getBlogById(id : number){
+        return this.http.get<any>(this.getBlogByIdURL + "?id=" + id);
     }
 
     getToken(){

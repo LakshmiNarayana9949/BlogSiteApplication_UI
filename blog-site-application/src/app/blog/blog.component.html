@@ -12,3 +12,20 @@
         </td>
     </tr>
 </table>
+<br/>
+<table border="1" style="width: 100%">
+    <tr style="background-color: #6b6bf3; height: 40px; text-align: center; border: 1px">
+        <td>Blog name</td>
+        <td>Category</td>
+        <td>Article</td>
+        <td>Author</td>
+        <td>Created On</td>
+    </tr>
+    <tr *ngFor="let blog of blogs" (click)="ViewBlog(blog.id)" style="height: 40px; text-align: center; border: 1px; cursor: pointer">
+        <td style="width: 20%">{{blog.blogName | slice:0:25}}</td>
+        <td style="width: 20%">{{blog.category | slice:0:25}}</td>
+        <td style="width: 20%">{{blog.article | slice:0:25}}</td>
+        <td style="width: 20%">{{blog.createdBy}}</td>
+        <td style="width: 20%">{{blog.createdOn | date:'dd-MM-yyyy hh:mm:ss a'}}</td>
+    </tr>
+</table>

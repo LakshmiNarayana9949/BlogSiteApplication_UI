@@ -20,10 +20,10 @@ export class AddnewblogComponent implements OnInit {
 
   AddNewBlog(){  
     this.resetValidations();
-    if(this.blog.BlogName != '' && this.blog.Category != '' && this.blog.Article != ''){
-      if(this.blog.BlogName.length >= 20 && this.blog.Category.length >= 20 && 
-                                            this.blog.Article.length >= 2000){      
-        this.blog.CreatedBy = Number(localStorage.getItem('userId'));
+    if(this.blog.blogName != '' && this.blog.category != '' && this.blog.article != ''){
+      if(this.blog.blogName.length >= 20 && this.blog.category.length >= 20 && 
+                                            this.blog.article.length >= 2000){      
+        this.blog.createdBy = Number(localStorage.getItem('userId'));
         this.auth.addNewBlog(this.blog).subscribe(res => {  
           debugger;
           this.successMessage = res;
@@ -40,25 +40,25 @@ export class AddnewblogComponent implements OnInit {
   }
 
   validateRequiredFields(){
-    if(this.blog.BlogName == ''){
+    if(this.blog.blogName == ''){
       this.blogNameValidation = 'Blog name is required';
     }
-    if(this.blog.Category == ''){
+    if(this.blog.category == ''){
       this.blogCategoryValidation = 'Category is required';
     }
-    if(this.blog.Article == ''){
+    if(this.blog.article == ''){
       this.blogArticleValidation = 'Article is required';
     }
   }
 
   validateLengths(){
-    if(this.blog.BlogName.length < 20){
+    if(this.blog.blogName.length < 20){
       this.blogNameValidation = 'Blog name should be atleast 20 characters';
     }
-    if(this.blog.Category.length < 20){
+    if(this.blog.category.length < 20){
       this.blogCategoryValidation = 'Category should be atleast 20 characters';
     }
-    if(this.blog.Article.length < 2000){
+    if(this.blog.article.length < 2000){
       this.blogArticleValidation = 'Article  should be atleast 2000 characters';
     }
   }

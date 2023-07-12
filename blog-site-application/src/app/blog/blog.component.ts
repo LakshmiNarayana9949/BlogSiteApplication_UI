@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddnewblogComponent } from '../addnewblog/addnewblog.component';
 import { AuthService } from '../services/auth.service';
+import { Blog } from '../models/Blog';
 
 @Component({
   selector: 'app-blog',
@@ -9,11 +10,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class BlogComponent implements OnInit {
   loginMessage : string = ''
+  blogs : Array<Blog> = new Array<Blog>()
 
   constructor(private auth : AuthService, private router : Router) { }
 
   ngOnInit(): void {
     this.showLoginMessage();
+    this.showBlogsGrid();
   }
   showLoginMessage(){    
     this.loginMessage = 'Hello ' + localStorage.getItem('userName') + '. Welcome to Blog Site Application.' 
@@ -23,4 +26,13 @@ export class BlogComponent implements OnInit {
     this.router.navigate(['/addNewBlog']);
   }
 
+  showBlogsGrid(){
+    this.auth.getAllBlogs().subscribe(res => {
+      this.blogs = res;
+    })
+  }
+
+  ViewBlog(id : number){
+    
+  }
 }
