@@ -4,6 +4,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { AddnewblogComponent } from './addnewblog/addnewblog.component';
+import { ViewblogComponent } from './viewblog/viewblog.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'addNewBlog',
     component : AddnewblogComponent
+  },
+  {
+    path: 'viewblog',
+    component : ViewblogComponent
   }
 ];
 

@@ -11,8 +11,9 @@ export class AuthService{
     private registerURL = "https://localhost:7251/Registration/Register"; 
     private loginURL = "https://localhost:7099/Authentication/Authenticate";
     private blogURL = "https://localhost:7185/Blog/AddNewBlog"; 
-    private getAllBlogsURL = "https://localhost:7185/Blog/GetAllBlogs";
-    private getBlogByIdURL = "https://localhost:7185/Blog/GetBlogById";   
+    private getBlogsByUserURL = "https://localhost:7185/Blog/GetBlogsByUserId";
+    private getBlogByIdURL = "https://localhost:7185/Blog/GetBlogById";  
+    private deleteBlogByIdURL = "https://localhost:7185/Blog/DeleteBlogById";  
 
     constructor(private router : Router, private http : HttpClient){
 
@@ -30,12 +31,16 @@ export class AuthService{
         return this.http.post(this.blogURL, blog, {responseType : 'text'});
     }
 
-    getAllBlogs(){
-        return this.http.get<any>(this.getAllBlogsURL);
+    getBlogsByUser(userId : number){
+        return this.http.get<any>(this.getBlogsByUserURL + '?userId=' + userId);
     }
 
     getBlogById(id : number){
         return this.http.get<any>(this.getBlogByIdURL + "?id=" + id);
+    }
+
+    deleteBlogById(id : number){
+        return this.http.delete(this.deleteBlogByIdURL + '?id=' + id);
     }
 
     getToken(){

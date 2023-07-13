@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AddnewblogComponent } from './addnewblog/addnewblog.component';
+import { ViewblogComponent } from './viewblog/viewblog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddnewblogComponent } from './addnewblog/addnewblog.component';
     RegistrationComponent,
     LoginComponent,
     BlogComponent,
-    AddnewblogComponent
+    AddnewblogComponent,
+    ViewblogComponent
   ],
   imports: [
     BrowserModule,

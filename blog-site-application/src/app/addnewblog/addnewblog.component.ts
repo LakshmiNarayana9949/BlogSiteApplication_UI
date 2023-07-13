@@ -22,7 +22,7 @@ export class AddnewblogComponent implements OnInit {
     this.resetValidations();
     if(this.blog.blogName != '' && this.blog.category != '' && this.blog.article != ''){
       if(this.blog.blogName.length >= 20 && this.blog.category.length >= 20 && 
-                                            this.blog.article.length >= 2000){      
+                                            this.blog.article.length >= 1000){      
         this.blog.createdBy = Number(localStorage.getItem('userId'));
         this.auth.addNewBlog(this.blog).subscribe(res => {  
           debugger;
@@ -58,8 +58,8 @@ export class AddnewblogComponent implements OnInit {
     if(this.blog.category.length < 20){
       this.blogCategoryValidation = 'Category should be atleast 20 characters';
     }
-    if(this.blog.article.length < 2000){
-      this.blogArticleValidation = 'Article  should be atleast 2000 characters';
+    if(this.blog.article.length < 1000){
+      this.blogArticleValidation = 'Article  should be atleast 1000 characters';
     }
   }
 

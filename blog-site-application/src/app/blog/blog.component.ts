@@ -10,6 +10,7 @@ import { Blog } from '../models/Blog';
 })
 export class BlogComponent implements OnInit {
   loginMessage : string = ''
+  blogsCount : number = 0
   blogs : Array<Blog> = new Array<Blog>()
 
   constructor(private auth : AuthService, private router : Router) { }
@@ -27,12 +28,33 @@ export class BlogComponent implements OnInit {
   }
 
   showBlogsGrid(){
-    this.auth.getAllBlogs().subscribe(res => {
+    let userId = Number(localStorage.getItem('userId'));
+    this.auth.getBlogsByUser(userId).subscribe(res => {
       this.blogs = res;
+      this.blogsCount = res.length;
     })
   }
 
+  IsBlogsAvailable() : boolean{
+    return this.blogsCount > 0;
+  }
+
   ViewBlog(id : number){
-    
+    localStorage.setItem('blogId', id.toString());
+    this.router.navigate(['viewblog']);
+  }
+
+  DeleteBlog(id : number){
+    this.auth.deleteBlogById(id).subscribe(res => {      
+      this.reloadBlogsGrid();
+    },
+    err => {
+      this.reloadBlogsGrid();
+    })
+  }
+
+  reloadBlogsGrid(){
+    this.blogs = new Array<Blog>();
+    this.showBlogsGrid();
   }
 }

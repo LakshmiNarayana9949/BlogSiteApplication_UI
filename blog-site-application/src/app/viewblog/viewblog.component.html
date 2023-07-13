@@ -1,0 +1,32 @@
+<table style="width: 100%">
+    <tr>
+        <td>
+            <a style="color: black; text-decoration: underline;" routerLink="/blog">
+                <b (click)="GoToBlogs()">Back </b></a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label><b>Blog Name</b></label> <br/>
+            <p>{{blog.blogName}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label><b>Author</b></label> <br/>
+            <p>{{blog.createdBy}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label><b> Category</b></label> <br/>
+            <p>{{blog.category}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label><b>Article</b></label> <br/>
+            <p>{{blog.article}}</p>
+        </td>
+    </tr>
+</table>
