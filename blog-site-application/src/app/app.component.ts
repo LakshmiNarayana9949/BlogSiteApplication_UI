@@ -10,6 +10,12 @@ export class AppComponent {
   title = 'blog-site-application';
   constructor(private auth : AuthService, private router : Router){}
 
+  ngOnInit(): void {
+    if(!this.LoggedIn(true)){
+      this.router.navigate(['login']);
+    }
+  }
+
   LoggedIn(input: boolean) : boolean{
     if(input){
       return this.auth.loggedIn();

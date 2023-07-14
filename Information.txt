@@ -29,3 +29,12 @@ CORS error in microservices
 Add the below line of code in porogram.cs to get rid of cors error.
 
 app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+Redirect to login page by default
+--------------------------------------
+Add the below code in app.component.ts file.
+ngOnInit(): void {
+    if(!this.LoggedIn(true)){
+      this.router.navigate(['login']);
+    }
+  }

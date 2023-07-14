@@ -1,12 +1,44 @@
 <p>{{loginMessage}}</p>
-<table>
+
+<table style="width: 100%;">
     <tr>
         <td>
+            Hers are your blogs.
+        </td>
+    </tr>
+    <br/>
+    <tr>
+        <td style="width: 25%;">
+            Category: 
+            <input type="text" [(ngModel)]="category" style="height: 40px; border-radius: 5px; border: 1px solid gray" />
+        </td>
+        <td style="width: 25%;">
+            From Date:
+            <input type="date" [(ngModel)]="fromdate" style="height: 40px; border-radius: 5px; border: 1px solid gray" />            
+        </td>
+        <td style="width: 25%;">
+            To Date:
+            <input type="date" [(ngModel)]="todate" style="height: 40px; border-radius: 5px; border: 1px solid gray" />          
+        </td>
+        <td style="width: 25%;">
+            <button class="btn btn-success" (click)="SearchBlogs()"> Search </button>           
+        </td>        
+    </tr>
+    <br/>    
+</table>
+
+<table>
+    <tr>
+        <td style="width: 25%;">
             <button class="btn btn-success" (click)="AddNewBlog()">Add New Blog</button>            
         </td>
     </tr>
 </table>
+
 <br/>
+
+<label>{{blogsCountMessage}}</label> <br/>
+
 <table border="1" style="width: 100%">
     <tr *ngIf="IsBlogsAvailable()" style="background-color: #6b6bf3; height: 40px; text-align: center; border: 1px">
         <td>Blog name</td>
@@ -17,14 +49,22 @@
         <td>Actions</td>
     </tr>
     <tr *ngFor="let blog of blogs"style="color: black; height: 40px; text-align: center; border: 1px">
-        <td style="width: 20%">{{blog.blogName | slice:0:25}}</td>
-        <td style="width: 20%">{{blog.category | slice:0:25}}</td>
-        <td style="width: 20%">{{blog.article | slice:0:25}}</td>
+        <td style="width: 18%">{{blog.blogName | slice:0:20}}</td>
+        <td style="width: 18%">{{blog.category | slice:0:20}}</td>
+        <td style="width: 18%">{{blog.article | slice:0:20}}</td>
         <td style="width: 15%">{{blog.createdBy}}</td>
         <td style="width: 20%">{{blog.createdOn | date:'dd-MM-yyyy hh:mm:ss a'}}</td>
-        <td style="width: 5%">
-            <a style="text-decoration: underline; cursor: pointer;" (click)="ViewBlog(blog.id)">View</a>
-            <a style="text-decoration: underline; cursor: pointer;" (click)="DeleteBlog(blog.id)">Delete</a>
+        <td style="width: 11%">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 50%;">
+                        <a style="text-decoration: underline; cursor: pointer;" (click)="ViewBlog(blog.id)">View  </a>
+                    </td>
+                    <td style="width: 50%;">
+                        <a style="text-decoration: underline; cursor: pointer;" (click)="DeleteBlog(blog.id)">Delete</a>
+                    </td>
+                </tr>
+            </table>                      
         </td>
     </tr>
 </table>

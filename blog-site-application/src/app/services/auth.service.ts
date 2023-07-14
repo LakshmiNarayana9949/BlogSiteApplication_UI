@@ -14,6 +14,7 @@ export class AuthService{
     private getBlogsByUserURL = "https://localhost:7185/Blog/GetBlogsByUserId";
     private getBlogByIdURL = "https://localhost:7185/Blog/GetBlogById";  
     private deleteBlogByIdURL = "https://localhost:7185/Blog/DeleteBlogById";  
+    private searchBlogURL = "https://localhost:7185/Blog/GetBlogsBySearch";  
 
     constructor(private router : Router, private http : HttpClient){
 
@@ -41,6 +42,11 @@ export class AuthService{
 
     deleteBlogById(id : number){
         return this.http.delete(this.deleteBlogByIdURL + '?id=' + id);
+    }
+
+    SearchBlogsWithFilters(userId : number, category : string, fromdate : Date, todate : Date){
+        return this.http.get<any>(this.searchBlogURL + '?userId=' + userId + '&category=' + category
+                                                     + '&fromdate=' + fromdate + '&todate=' + todate);
     }
 
     getToken(){
