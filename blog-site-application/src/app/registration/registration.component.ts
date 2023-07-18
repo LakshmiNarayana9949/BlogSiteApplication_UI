@@ -25,6 +25,7 @@ export class RegistrationComponent implements OnInit {
          this.user.Password.length >= 8)
       {
         this.user.Id = 0;
+        this.user.UserType = 2;
         this._auth.registerUser(this.user).subscribe(res => {
           if(res == "true"){
             this.successfulRegistration();

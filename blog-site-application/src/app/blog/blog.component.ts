@@ -86,4 +86,22 @@ export class BlogComponent implements OnInit {
       }
     });
   }
+
+  IfUser() : boolean{
+    if(localStorage.getItem('userType') == '2'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  CreatedByMe(createdBy : number) : boolean{
+    if(localStorage.getItem('userId') == createdBy.toString()){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }
