@@ -1,32 +1,38 @@
-<table style="width: 100%">
-    <tr>
+<a style="color: black; text-decoration: underline;" routerLink="/blog">
+    <b (click)="GoToBlogs()">Back </b>
+</a> <br/><br/>
+
+
+<table style="width: 100%;">
+    <tr style="width: 100%; background-color: #20438c; color: white; text-align: center; height: 40px">
         <td>
-            <a style="color: black; text-decoration: underline;" routerLink="/blog">
-                <b (click)="GoToBlogs()">Back </b></a>
+            <h4 style="margin: 0 0 0 0  !important;">{{blog.blogName}}</h4>
         </td>
     </tr>
-    <tr>
-        <td>
-            <label><b>Blog Name</b></label> <br/>
-            <p>{{blog.blogName}}</p>
+</table>
+<table style="width: 100%;">    
+    <tr style="width: 100%; background-color: #20438c; color: white; text-align: center; height: 60px">
+        <td style="width: 88% !important"></td>
+        <td style="width: 10%;">
+            <h6 style="margin: 0 0 0 0  !important">{{blog.author}}</h6>
+            <h6 style="margin: 0 0 0 0  !important">{{blog.email}}</h6>
         </td>
+        <td style="width: 2% !important"></td>
     </tr>
-    <tr>
-        <td>
-            <label><b>Author</b></label> <br/>
-            <p>{{blog.author}}</p>
+</table>
+<table style="width: 100%">    
+    <tr style="width: 100%; background-color: white;">
+        <td style="width: 3% !important"></td>
+        <td style="width: 94%;">
+            <p><b>{{blog.category}}</b></p>
         </td>
+        <td style="width: 3% !important"></td>
     </tr>
-    <tr>
-        <td>
-            <label><b> Category</b></label> <br/>
-            <p>{{blog.category}}</p>
+    <tr style="width: 100%; background-color: white;">
+        <td style="width: 3% !important"></td>
+        <td style="width: 94%;">
+            <p style="margin: 0 0 0 0  !important">{{blog.article}}</p>
         </td>
-    </tr>
-    <tr>
-        <td>
-            <label><b>Article</b></label> <br/>
-            <p>{{blog.article}}</p>
-        </td>
+        <td style="width: 3% !important"></td>
     </tr>
 </table>
