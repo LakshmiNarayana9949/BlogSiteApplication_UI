@@ -44,7 +44,7 @@ export class AuthService{
         return this.http.delete(this.deleteBlogByIdURL + '?id=' + id);
     }
 
-    SearchBlogsWithFilters(userId : number, category : string, fromdate : Date, todate : Date){
+    SearchBlogsWithFilters(userId : number, category : string, fromdate : string, todate : string){
         return this.http.get<any>(this.searchBlogURL + '?userId=' + userId + '&category=' + category
                                                      + '&fromdate=' + fromdate + '&todate=' + todate);
     }

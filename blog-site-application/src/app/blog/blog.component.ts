@@ -14,8 +14,8 @@ export class BlogComponent implements OnInit {
   blogsCount : number = 0
   blogs : Array<Blog> = new Array<Blog>()
   category : string = ''
-  fromdate : Date = new Date();
-  todate : Date = new Date();
+  fromdate : Date | null = null
+  todate : Date | null = null
   blogsCountMessage : string = ''
 
   constructor(private auth : AuthService, private router : Router) { }
@@ -71,20 +71,32 @@ export class BlogComponent implements OnInit {
 
   SearchBlogs(){    
     let userId = Number(localStorage.getItem('userId'));
-    let modifiedfromdate = formatDate(this.fromdate, 'MM-dd-yyyy', 'en-US');
-    let modifiedtodate = formatDate(this.todate, 'MM-dd-yyyy', 'en-US');
-    alert(modifiedfromdate);
-    this.auth.SearchBlogsWithFilters(userId, this.category, this.fromdate, this.todate).subscribe(res => {
-      this.blogs = new Array<Blog>();
-      this.blogs = res;
-      this.blogsCount = res.length;
-      if(this.blogsCount > 0){
-        this.blogsCountMessage = 'Showing ' + this.blogsCount.toString() + ' Blog(s).'
-      }
-      else{
-        this.blogsCountMessage = 'No Blogs found for the selected search criteria';
-      }
-    });
+    let modifiedfromdate : string = formatDate('1753-01-01', 'MM-dd-yyyy', 'en-US');
+    let modifiedtodate: string = formatDate('9999-12-31', 'MM-dd-yyyy', 'en-US');
+    
+    if(this.fromdate != null){
+      modifiedfromdate = formatDate(this.fromdate, 'MM-dd-yyyy', 'en-US');
+    }
+    if(this.todate != null){
+      modifiedtodate = formatDate(this.todate, 'MM-dd-yyyy', 'en-US');
+    }
+
+    if(this.category == ''){
+      alert('Please enter category to search Blogs');    
+    }
+    else{
+      this.auth.SearchBlogsWithFilters(userId, this.category, modifiedfromdate, modifiedtodate).subscribe(res => {
+        this.blogs = new Array<Blog>();
+        this.blogs = res;
+        this.blogsCount = res.length;
+        if(this.blogsCount > 0){
+          this.blogsCountMessage = 'Showing ' + this.blogsCount.toString() + ' Blog(s).'
+        }
+        else{
+          this.blogsCountMessage = 'No Blogs found for the selected search criteria';
+        }
+      });
+    }
   }
 
   IfUser() : boolean{
