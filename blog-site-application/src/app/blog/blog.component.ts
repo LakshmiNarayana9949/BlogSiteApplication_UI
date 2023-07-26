@@ -56,7 +56,8 @@ export class BlogComponent implements OnInit {
   }
 
   DeleteBlog(id : number){
-    this.auth.deleteBlogById(id).subscribe(res => {      
+    let userId = Number(localStorage.getItem('userId'));
+    this.auth.deleteBlogById(id, userId).subscribe(res => {      
       this.reloadBlogsGrid();
     },
     err => {

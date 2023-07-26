@@ -40,8 +40,8 @@ export class AuthService{
         return this.http.get<any>(this.getBlogByIdURL + "?id=" + id);
     }
 
-    deleteBlogById(id : number){
-        return this.http.delete(this.deleteBlogByIdURL + '?id=' + id);
+    deleteBlogById(id : number, userId : number){
+        return this.http.delete(this.deleteBlogByIdURL + '?id=' + id + '&userId=' + userId);
     }
 
     SearchBlogsWithFilters(userId : number, category : string, fromdate : string, todate : string){
